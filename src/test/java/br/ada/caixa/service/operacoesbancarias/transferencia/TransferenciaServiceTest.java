@@ -3,32 +3,33 @@ package br.ada.caixa.service.operacoesbancarias.transferencia;
 import br.ada.caixa.service.operacoesbancarias.deposito.DepositoService;
 import br.ada.caixa.service.operacoesbancarias.saque.SaqueService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.atMostOnce;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class TransferenciaServiceTest {
 
     private final Random random = new Random();
     private final Long numeroContaOrigem  = random.nextLong();
     private final Long numeroContaDestino = random.nextLong();
-    private final BigDecimal valor = new BigDecimal(random.nextDouble()).setScale(2, RoundingMode.HALF_UP);
+    private final BigDecimal valor = BigDecimal.valueOf(random.nextDouble()).setScale(2, RoundingMode.HALF_UP);
 
+    @Mock
+    private SaqueService saqueService;
+    @Mock
+    private DepositoService depositoService;
 
-    private SaqueService saqueService = mock(SaqueService.class);
-    private DepositoService depositoService = mock(DepositoService.class);
-
-    private TransferenciaService service =
-            new TransferenciaService(saqueService, depositoService);
+    @InjectMocks
+    private TransferenciaService service;
 
     @Test
     void transferirTest() {
