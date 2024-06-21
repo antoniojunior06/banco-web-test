@@ -1,0 +1,11 @@
+
+[
+java:S1117L"9Rename "conta" which hides the field declared at line 50.(¼”®üþÿÿÿÿ8§µ•Æƒ2
+y
+java:S3415ê"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¢¶ÊÅþÿÿÿÿ8­µ•Æƒ2
+y
+java:S3415ƒ"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÄÉå¤ûÿÿÿÿ8®µ•Æƒ2
+Q
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëÝüÿÿÿÿ8°µ•Æƒ2
+M
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8°µ•Æƒ2

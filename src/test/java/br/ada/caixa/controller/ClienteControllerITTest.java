@@ -1,6 +1,7 @@
 package br.ada.caixa.controller;
 
 import br.ada.caixa.dto.request.RegistrarClientePFRequestDto;
+import br.ada.caixa.dto.request.RegistrarClientePJRequestDto;
 import br.ada.caixa.dto.response.ClienteResponseDto;
 import br.ada.caixa.dto.response.RegistrarClienteResponseDto;
 import br.ada.caixa.entity.Cliente;
@@ -65,7 +66,15 @@ class ClienteControllerITTest {
                 .tipo(TipoCliente.PF)
                 .createdAt(LocalDate.now())
                 .build();
-        repository.saveAll(List.of(cliente1, cliente2, cliente3));
+        var cliente4 = Cliente.builder()
+                .documento("123456799")
+                .nome("Teste 4")
+                .dataNascimento(LocalDate.now())
+                .status(StatusCliente.ATIVO)
+                .tipo(TipoCliente.PJ)
+                .createdAt(LocalDate.now())
+                .build();
+        repository.saveAll(List.of(cliente1, cliente2, cliente3, cliente4));
     }
 
     @AfterEach
@@ -88,7 +97,7 @@ class ClienteControllerITTest {
     }
 
     @Test
-    void postTest() {
+    void postPFTest() {
         // given
         final var dataNascimento = LocalDate.now().minusYears(10);
         final var cpf = "1234";
@@ -116,6 +125,34 @@ class ClienteControllerITTest {
         assertEquals(nome, entity.get().getNome());
     }
 
+    @Test
+    void postPJTest() {
+        // given
+        final var cnpj = "5678";
+        final var nome = "Teste Post PJ";
+        final var razaoSocial = "Olá Mundo SA";
+        final RegistrarClientePJRequestDto clienteDto =
+                RegistrarClientePJRequestDto.builder()
+                        .cnpj(cnpj)
+                        .nomeFantasia(nome)
+                        .razaoSocial(razaoSocial)
+                        .build();
+
+        // when
+        var response =
+                restTemplate.postForEntity(url + "/pj",
+                        clienteDto,
+                        RegistrarClienteResponseDto.class);
+
+        // then
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+
+        final var dtoResponse = response.getBody();
+        assertEquals(cnpj, dtoResponse.getDocumento());
+
+        final var entity = repository.findByDocumento(cnpj);
+        assertEquals(nome, entity.get().getNome());
+    }
 
 
 

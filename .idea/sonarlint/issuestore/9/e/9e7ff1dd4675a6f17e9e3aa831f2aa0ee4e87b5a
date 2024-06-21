@@ -1,3 +1,6 @@
 
-€
-java:S1128"=Remove this unused import 'javax.persistence.GenerationType'.(ý÷õ¡8Ô’œ“‚2J$f04fa89d-9476-4587-9dbf-ed1757050245
+~	java:S125!"<This block of commented-out lines of code should be removed.(Û‰‡Å8…Ñ—¾ƒ2J$6b3d5b04-d923-4482-a6b6-46bd6015352d
+Š
+java:S1128"GRemove this unused import 'org.hibernate.annotations.GenericGenerator'.(ƒÝŸÉ8‡Ñ—¾ƒ2J$5ba59845-3d5b-408d-a187-972c7e40bfb1
+s
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8‡Ñ—¾ƒ2J$e710a9e4-ac1e-41c2-a8b2-f51281d9ae9f

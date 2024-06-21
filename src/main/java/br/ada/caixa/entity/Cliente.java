@@ -22,18 +22,19 @@ import java.util.UUID;
 @Entity
 public class Cliente {
 
-    @Id
-    @GeneratedValue(generator = "uuid-hibernate-generator")
-    @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+//    @Id
+//    @GeneratedValue(generator = "uuid-hibernate-generator")
+//    @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
+//    private UUID id;
 
+    @Id
     @Column(unique = true, nullable = false)
     private String documento;
 
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDate dataNascimento;
 
     @Enumerated(EnumType.STRING)

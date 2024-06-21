@@ -1,10 +1,11 @@
 package br.ada.caixa.dto.request;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RegistrarClientePJRequestDto {
 
     private String cnpj;

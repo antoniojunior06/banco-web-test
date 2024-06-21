@@ -27,11 +27,13 @@ import java.util.UUID;
 @Entity
 public class Conta {
 
-    @Id
-    @GeneratedValue(generator = "uuid-hibernate-generator")
-    @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
-    private UUID id;
+//    @Id
+//    @GeneratedValue(generator = "uuid-hibernate-generator")
+//    @GenericGenerator(name = "uuid-hibernate-generator", strategy = "org.hibernate.id.UUIDGenerator")
+//    private UUID id;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long numero;
 

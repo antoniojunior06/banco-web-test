@@ -1,7 +1,12 @@
 
-G
-java:S1128"*Remove this unused import 'lombok.Getter'.(ùÒµÙ8¬ô›€2
-G
-java:S1128	"*Remove this unused import 'lombok.Setter'.(ó¸çµ8¯ô›€2
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8±ô›€2
+~	java:S125"<This block of commented-out lines of code should be removed.(Û‰‡Å8å¨›¾ƒ2J$5b1ca08a-c24e-4b65-ae1c-3fb180f929f7
+m
+java:S1128"*Remove this unused import 'lombok.Getter'.(ùÒµÙ8ç›¾ƒ2J$e3d57e69-fa4a-4be9-8aad-1fcc31f79586
+m
+java:S1128	"*Remove this unused import 'lombok.Setter'.(ó¸çµ8ç›¾ƒ2J$b172a838-5a9c-4ee9-9686-484524cf58ea
+Š
+java:S1128"GRemove this unused import 'org.hibernate.annotations.GenericGenerator'.(ƒİŸÉ8ç›¾ƒ2J$08588ffd-9207-409c-8490-dcc57a51365a
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ç›¾ƒ2J$0b236a3e-b996-4ad9-ab83-36cd5cc3146e
+s
+java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8ç›¾ƒ2J$6e5244ae-bd00-4ff5-9227-8191b77f7479
