@@ -134,3 +134,7 @@ Ssrc/main/java/br/ada/caixa/service/operacoesbancarias/deposito/DepositoService.
 Qsrc/main/java/service/operacoesbancarias/investimento/InvestimentoOperacaoPF.java,e\f\efa5137aea2228321af23d82d515b14f86fa137d
 Å
 Qsrc/main/java/service/operacoesbancarias/investimento/InvestimentoOperacaoPJ.java,e\7\e75072d57259ea05bd04dab431b332028398fadd
+x
+Hsrc/main/java/service/operacoesbancarias/saque/OperacaoSaqueSaldoPF.java,4\3\4370934a43bb4f28d6dfe1b8d390bc66b9535722
+x
+Hsrc/main/java/service/operacoesbancarias/saque/OperacaoSaqueSaldoPJ.java,e\7\e728f746a734346031960711c4ab6e91530fad9d

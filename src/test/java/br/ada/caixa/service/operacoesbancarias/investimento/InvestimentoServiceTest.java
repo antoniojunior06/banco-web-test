@@ -78,8 +78,6 @@ class InvestimentoServiceTest {
         verify(contaRepository, times(1)).save(actual);
     }
 
-
-    // 1 - Variacao qdo o cliente nao é encontrado
     @Test
     @DisplayName("dado um documento de cliente não encontrado, " +
             "quando tentado investir um valor, " +
@@ -101,7 +99,6 @@ class InvestimentoServiceTest {
         assertThrows(ValidacaoException.class, () -> service.investir(documentoCliente, valor));
     }
 
-    // Testar qdo o cliente tem + de 1 conta investimento
     @Test
     @DisplayName("dado um cliente com mais de uma conta de investimento, " +
             "quando tentado investir um valor, " +
@@ -130,7 +127,6 @@ class InvestimentoServiceTest {
         assertThrows(ValidacaoException.class, () -> service.investir(documentoCliente, valor));
     }
 
-    // 4 - E se o cliente for PJ?
     @Test
     @DisplayName("dado um cliente PF com uma conta investimento unica, " +
             "quando investido um valor, " +
@@ -169,11 +165,8 @@ class InvestimentoServiceTest {
         verify(contaRepository, times(1)).save(actual);
     }
 
-
-
 }
 
-    // Testar qdo o cliente nao possui conta investimento
 
 
 

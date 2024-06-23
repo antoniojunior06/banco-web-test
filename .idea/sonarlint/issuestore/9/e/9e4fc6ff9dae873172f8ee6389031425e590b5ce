@@ -1,11 +1,11 @@
 
-[
-java:S1117L"9Rename "conta" which hides the field declared at line 50.(¼”®üşÿÿÿÿ8§µ•Æƒ2
-y
-java:S3415ê"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¢¶ÊÅşÿÿÿÿ8­µ•Æƒ2
-y
-java:S3415ƒ"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÄÉå¤ûÿÿÿÿ8®µ•Æƒ2
-Q
-java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8°µ•Æƒ2
-M
-java:S1128"+Remove this unused import 'java.util.UUID'.(ÀãÄ£úÿÿÿÿ8°µ•Æƒ2
+
+java:S1117J"9Rename "conta" which hides the field declared at line 48.(¼”®üşÿÿÿÿ8’±¼“„2J$99cfb587-ca7d-48b1-898d-06075bd58715
+Ÿ
+java:S3415˜"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(¢¶ÊÅşÿÿÿÿ8ıÙ£êƒ2J$c5eb2b98-5d3b-40ef-a4ea-62c6bc4d646f
+Ÿ
+java:S3415±"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(ÄÉå¤ûÿÿÿÿ8ÿÙ£êƒ2J$8b1e9da1-14dd-488a-badc-ac7eed510ead
+b
+java:S1128"ERemove this unused import 'br.ada.caixa.dto.request.SaqueRequestDto'.(Œò ¨8ö…á“„2
+j
+java:S1128"MRemove this unused import 'br.ada.caixa.dto.request.TransferenciaRequestDto'.(Ğ¾ª8ö…á“„2

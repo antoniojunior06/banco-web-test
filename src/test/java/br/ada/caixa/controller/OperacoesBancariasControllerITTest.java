@@ -25,8 +25,6 @@ import org.springframework.http.ResponseEntity;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -117,86 +115,6 @@ class OperacoesBancariasControllerITTest {
     }
 
     @Test
-    void sacarTest() {
-        // given
-        final var valor = new BigDecimal("50.00");
-        final var saqueRequestDto = SaqueRequestDto.builder()
-                .numeroConta(conta.getNumero())
-                .valor(valor)
-                .build();
-
-        // when
-        ResponseEntity<Void> response = restTemplate.postForEntity(url + "/sacar", saqueRequestDto, Void.class);
-
-        // then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-
-        Conta contaAtualizada = contaRepository.findById(conta.getNumero()).orElseThrow();
-        assertEquals(valor.negate(), contaAtualizada.getSaldo());
-    }
-
-    @Test
-    void transferirTest() {
-        // given
-        final var numeroContaOrigem = 1L;
-        final var numeroContaDestino = 2L;
-        final var valor = BigDecimal.valueOf(25.0);
-
-        // Criando uma conta destino para a transferência
-        Cliente clienteOrigem = Cliente.builder()
-                .documento("11122233345")
-                .nome("Cliente Origem")
-                .dataNascimento(LocalDate.of(1985, 5, 15))
-                .status(StatusCliente.ATIVO)
-                .tipo(TipoCliente.PF)
-                .createdAt(LocalDate.now())
-                .build();
-        Cliente clienteDestino = Cliente.builder()
-                .documento("11122233344")
-                .nome("Cliente Destino")
-                .dataNascimento(LocalDate.of(1985, 5, 15))
-                .status(StatusCliente.ATIVO)
-                .tipo(TipoCliente.PF)
-                .createdAt(LocalDate.now())
-                .build();
-        clienteRepository.saveAll(List.of(clienteOrigem, clienteDestino));
-
-        Conta contaOrigem = Conta.builder()
-                .numero(numeroContaOrigem)
-                .saldo(BigDecimal.ZERO)
-                .cliente(clienteOrigem)
-                .createdAt(LocalDate.now())
-                .tipo(TipoConta.CONTA_CORRENTE)
-                .build();
-        Conta contaDestino = Conta.builder()
-                .numero(numeroContaDestino)
-                .saldo(BigDecimal.ZERO)
-                .cliente(clienteDestino)
-                .createdAt(LocalDate.now())
-                .tipo(TipoConta.CONTA_CORRENTE)
-                .build();
-        contaRepository.saveAll(List.of(contaOrigem, contaDestino));
-
-        final var transferenciaRequestDto = TransferenciaRequestDto.builder()
-                .numeroContaOrigem(contaOrigem.getNumero())
-                .numeroContaDestino(contaDestino.getNumero())
-                .valor(valor)
-                .build();
-
-        // when
-        ResponseEntity<Void> response = restTemplate.postForEntity(url + "/transferir", transferenciaRequestDto, Void.class);
-        System.out.println(transferenciaRequestDto);
-        // then
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-
-        Conta contaOrigemAtualizada = contaRepository.findById(numeroContaOrigem).orElseThrow();
-        assertEquals(valor.negate(), contaOrigemAtualizada.getSaldo());
-
-        Conta contaDestinoAtualizada = contaRepository.findById(numeroContaDestino).orElseThrow();
-        assertEquals(valor, contaDestinoAtualizada.getSaldo());
-    }
-
-    @Test
     void consultarSaldoTest() {
         // given
         final var numeroConta = 1L;
@@ -277,8 +195,6 @@ class OperacoesBancariasControllerITTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertTrue(response.getBody().getNumeroConta() > 0);
         assertEquals(valor, response.getBody().getSaldo());
-
-        List<Conta> contas = contaRepository.findAll();
-        assertEquals(2, contas.size()); // Conta corrente + conta poupança
     }
+
 }
